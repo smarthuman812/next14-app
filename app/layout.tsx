@@ -1,32 +1,20 @@
-import type { ReactNode } from 'react';
+import "./globals.css";
+import type { Metadata } from "next";
+import Header from "../components/Header";
+import Background from "../components/Background";
 
-export const metadata = {
-  title: 'Next14 App',
-  description: 'Simple Next.js 14 app with API routes.',
+export const metadata: Metadata = {
+  title: "EVILS",
+  description: "Сила в хаосе. Запускаем продукты, сжигаем барьеры, делаем результат.",
 };
 
-/**
- * Root layout applied to all pages. Sets up basic HTML structure and
- * provides minimal global styling without relying on external UI libraries.
- */
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        style={{
-          margin: 0,
-          padding: 0,
-          minHeight: '100vh',
-          fontFamily:
-            '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
-          backgroundColor: '#f9f9f9',
-          color: '#222',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        {children}
+    <html lang="ru">
+      <body className="min-h-screen bg-black text-white relative">
+        <Background />
+        <Header />
+        <main className="pt-24">{children}</main>
       </body>
     </html>
   );
