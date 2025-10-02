@@ -1,0 +1,17 @@
+# Node and build output
+node_modules
+.next
+
+# Environment files
+.env*
+
+# Vercel deployment directory
+.vercel
+
+# Package manager lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Logs and miscellaneous
+*.log
