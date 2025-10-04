@@ -12,21 +12,23 @@ import Glow from "./Glow";
  */
 export default function Hero() {
   const { t } = useTranslation();
+
   // Animation for floating badges: moves them up and down continuously.
-  const floatTransition = {
+  const floatTransition: any = {
     y: {
       duration: 4,
       repeat: Infinity,
-      repeatType: "reverse" as const,
+      repeatType: "reverse",
       ease: "easeInOut",
     },
     opacity: {
       duration: 4,
       repeat: Infinity,
-      repeatType: "mirror" as const,
+      repeatType: "mirror",
       ease: "easeInOut",
     },
   };
+
   return (
     <section id="home" className="relative overflow-hidden py-24 md:py-32 text-center">
       {/* Background flames overlay */}
@@ -39,8 +41,10 @@ export default function Hero() {
           quality={90}
         />
       </div>
+
       {/* Ambient glows */}
       <Glow className="w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2" />
+
       {/* Floating badges */}
       <motion.div
         className="absolute top-12 left-6 md:left-24 w-20 h-20"
@@ -54,6 +58,7 @@ export default function Hero() {
           sizes="80px"
         />
       </motion.div>
+
       <motion.div
         className="absolute top-24 right-6 md:right-24 w-20 h-20"
         animate={{ y: [-20, 0] }}
@@ -66,6 +71,7 @@ export default function Hero() {
           sizes="80px"
         />
       </motion.div>
+
       {/* Hero content */}
       <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center space-y-6 px-4">
         <Image
