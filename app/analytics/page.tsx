@@ -1,8 +1,8 @@
-export default function AnalyticsPage() {
+export default function Analytics() {
   return (
-    <div className="p-6 text-center">
-      <h1 className="text-2xl font-bold text-red-500">Аналитика</h1>
-      <p className="mt-4">Здесь будут графики и статистика.</p>
-    </div>
+    <main className="min-h-screen bg-black text-white p-4">
+      <h1 className="text-2xl text-red-600 font-bold">Аналитика</h1>
+      <p className="text-gray-400 mt-2">Здесь будет статистика и ROI.</p>
+    </main>
   );
 }

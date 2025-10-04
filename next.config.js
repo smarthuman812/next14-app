@@ -1,7 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Включаем строгий режим React
-  reactStrictMode: true,
-};
+const path = require("path");
 
-module.exports = nextConfig;
+module.exports = {
+  reactStrictMode: true,
+  webpack: (config) => {
+    config.resolve.alias["@"] = path.resolve(__dirname);
+    return config;
+  },
+};

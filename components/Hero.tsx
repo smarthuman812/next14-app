@@ -1,55 +1,86 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useTranslation } from "@/lib/i18n";
+import Glow from "./Glow";
 
+/**
+ * Hero section at the top of the homepage.  Displays the app name and a
+ * descriptive tagline alongside decorative character art and floating badges.
+ * Animation is handled by Framer Motion.
+ */
 export default function Hero() {
+  const { t } = useTranslation();
+  // Animation for floating badges: moves them up and down continuously.
+  const floatTransition = {
+    y: {
+      duration: 4,
+      repeat: Infinity,
+      repeatType: "reverse" as const,
+      ease: "easeInOut",
+    },
+    opacity: {
+      duration: 4,
+      repeat: Infinity,
+      repeatType: "mirror" as const,
+      ease: "easeInOut",
+    },
+  };
   return (
-    <section className="py-16 text-center">
-      <h1 className="text-4xl font-bold text-red-600 mb-8">EVILS</h1>
-      <p className="text-gray-300 mb-12">
-        Сила в хаосе. Запускаем продукты, сжигаем барьеры, делаем результат.
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {/* Гемблинг */}
-        <div className="bg-gradient-to-b from-black to-red-900 rounded-lg border border-red-600 p-6 hover:scale-105 transition">
-          <Image
-            src="/images/devil-gambling.png"
-            alt="Гемблинг"
-            width={300}
-            height={300}
-            className="mx-auto"
-          />
-          <h3 className="text-xl font-bold text-white mt-4">Гемблинг</h3>
-          <p className="text-gray-300 text-sm mt-2">
-          </p>
-        </div>
-
-        {/* OnlyFans */}
-        <div className="bg-gradient-to-b from-black to-red-900 rounded-lg border border-red-600 p-6 hover:scale-105 transition">
-          <Image
-            src="/images/devil-onlyfans.png"
-            alt="OnlyFans"
-            width={300}
-            height={300}
-            className="mx-auto"
-          />
-          <h3 className="text-xl font-bold text-white mt-4">OnlyFans</h3>
-          <p className="text-gray-300 text-sm mt-2">
-          </p>
-        </div>
-
-        {/* Товарный бизнес */}
-        <div className="bg-gradient-to-b from-black to-red-900 rounded-lg border border-red-600 p-6 hover:scale-105 transition">
-          <Image
-            src="/images/devil-business.png"
-            alt="Товарный бизнес"
-            width={300}
-            height={300}
-            className="mx-auto"
-          />
-          <h3 className="text-xl font-bold text-white mt-4">Товарный бизнес</h3>
-          <p className="text-gray-300 text-sm mt-2">
-          </p>
-        </div>
+    <section id="home" className="relative overflow-hidden py-24 md:py-32 text-center">
+      {/* Background flames overlay */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3">
+        <Image
+          src="/images/bg-flames.png"
+          alt="flames"
+          fill
+          className="object-cover"
+          quality={90}
+        />
+      </div>
+      {/* Ambient glows */}
+      <Glow className="w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2" />
+      {/* Floating badges */}
+      <motion.div
+        className="absolute top-12 left-6 md:left-24 w-20 h-20"
+        animate={{ y: [0, -20] }}
+        transition={floatTransition}
+      >
+        <Image
+          src="/images/sticker-boost.png"
+          alt="Boost badge"
+          fill
+          sizes="80px"
+        />
+      </motion.div>
+      <motion.div
+        className="absolute top-24 right-6 md:right-24 w-20 h-20"
+        animate={{ y: [-20, 0] }}
+        transition={floatTransition}
+      >
+        <Image
+          src="/images/sticker-profit.png"
+          alt="Profit badge"
+          fill
+          sizes="80px"
+        />
+      </motion.div>
+      {/* Hero content */}
+      <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center space-y-6 px-4">
+        <Image
+          src="/images/roi-devil.png"
+          alt="ROI devil"
+          width={200}
+          height={200}
+          className="mb-4"
+        />
+        <h1 className="text-5xl md:text-6xl font-extrabold text-[var(--red-500)] drop-shadow-lg">
+          {t("hero.title")}
+        </h1>
+        <p className="max-w-xl text-lg md:text-xl text-[var(--muted)]">
+          {t("hero.subtitle")}
+        </p>
       </div>
     </section>
   );

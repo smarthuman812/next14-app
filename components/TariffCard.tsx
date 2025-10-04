@@ -1,26 +1,50 @@
-import React from "react";
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface TariffCardProps {
+  plan: string;
   title: string;
-  price: string;
+  description: string;
+  icon: string;
   features: string[];
 }
 
-export default function TariffCard({ title, price, features }: TariffCardProps) {
+/**
+ * Pricing plan card used on the Pricing page.  Displays an icon at the top,
+ * followed by a title, descriptive paragraph, feature list and a call
+ * to action button that links to the request form with the plan prefilled.
+ */
+export default function TariffCard({ plan, title, description, icon, features }: TariffCardProps) {
   return (
-    <div className="bg-gradient-to-b from-black/90 to-red-950 border border-red-600 rounded-xl shadow-lg hover:shadow-red-600/30 p-6 w-80 transition-transform transform hover:scale-105">
-      <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
-      <p className="text-red-400 font-semibold mb-4">от {price}</p>
-      <ul className="space-y-2 text-gray-300 text-sm">
-        {features.map((feature, idx) => (
-          <li key={idx} className="flex items-center gap-2">
-            <span className="text-green-400">✔</span> {feature}
-          </li>
-        ))}
-      </ul>
-      <button className="mt-6 w-full py-2 rounded-lg bg-red-600 text-white font-semibold hover:bg-red-700 transition">
-        Выбрать тариф
-      </button>
-    </div>
+    <motion.div
+      whileHover={{ scale: 1.03, y: -6 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="rounded-2xl border border-[var(--border)] bg-[var(--panel)] shadow-inner shadow-[var(--glow)] overflow-hidden flex flex-col"
+    >
+      <div className="flex justify-center pt-6">
+        <Image src={icon} alt={title} width={80} height={80} />
+      </div>
+      <div className="p-6 flex flex-col flex-1 space-y-4 text-center">
+        <h3 className="text-2xl font-bold text-[var(--red-500)] uppercase">{title}</h3>
+        <p className="text-sm text-[var(--muted)]">{description}</p>
+        <ul className="space-y-1 text-sm list-none text-left mx-auto">
+          {features.map((feat, idx) => (
+            <li key={idx} className="flex items-start space-x-2">
+              <span className="text-[var(--red-500)]">✔</span>
+              <span className="text-[var(--muted)]">{feat}</span>
+            </li>
+          ))}
+        </ul>
+        <Link
+          href={{ pathname: "/request", query: { plan } }}
+          className="mt-auto inline-block px-4 py-2 rounded-lg bg-[var(--red-500)] text-white font-semibold uppercase tracking-wide hover:bg-[var(--red)] transition-colors"
+        >
+          Выбрать
+        </Link>
+      </div>
+    </motion.div>
   );
 }

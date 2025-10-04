@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "request": "Request",
+    "dashboard": "Dashboard",
+    "about": "About"
+  },
+  "footer": {
+    "contact": "Contact us",
+    "copyright": "All rights reserved."
+  },
+  "hero": {
+    "title": "EVILS",
+    "subtitle": "Power arises from chaos. Unlock your marketing potential with EVILS."
+  },
+  "services": {
+    "gambling": {
+      "title": "Gambling",
+      "description": "Maximise ROI in iGaming and betting verticals.",
+      "bullets": [
+        "Conversion‑focused funnels",
+        "Anti‑fraud & KYC solutions",
+        "Flexible payout models"
+      ]
+    },
+    "onlyfans": {
+      "title": "OnlyFans",
+      "description": "Grow your fanbase and monetise your content.",
+      "bullets": [
+        "Audience targeting",
+        "Revenue optimisation",
+        "Secure transactions"
+      ]
+    },
+    "commerce": {
+      "title": "Commerce",
+      "description": "Scale your e‑commerce business with data‑driven strategies.",
+      "bullets": [
+        "Market analytics",
+        "Conversion optimisation",
+        "Global reach"
+      ]
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "test": {
+      "title": "Test",
+      "description": "Evaluate our platform with a risk‑free trial.",
+      "features": [
+        "Proof of concept",
+        "Basic analytics",
+        "Limited support"
+      ]
+    },
+    "referrals": {
+      "title": "Referrals",
+      "description": "Tap into our affiliate network and earn together.",
+      "features": [
+        "Multi‑tier commission",
+        "Detailed reports",
+        "Marketing assets"
+      ]
+    },
+    "clients": {
+      "title": "Clients",
+      "description": "Full‑service solution for acquiring and retaining customers.",
+      "features": [
+        "Advanced targeting",
+        "Fraud prevention",
+        "24/7 support"
+      ]
+    }
+  },
+  "request": {
+    "title": "Request a proposal",
+    "fields": {
+      "projectLinks": "Project links",
+      "budget": "Budget (USD)",
+      "audience": "Audience",
+      "geo": "Target regions",
+      "product": "Product",
+      "description": "Description",
+      "consent": "I agree to the processing of my data"
+    },
+    "submit": "Submit"
+  },
+  "dashboard": {
+    "welcome": "Hello",
+    "balance": "Balance",
+    "topup": "Top up",
+    "analytics": "Analytics",
+    "integrations": "Integrations",
+    "history": "History"
+  },
+  "about": {
+    "title": "About EVILS",
+    "content": "EVILS is a cutting‑edge marketing platform blending telegram integration, crypto payments and neon aesthetics. We help you reach your goals through chaos‑driven creativity."
+  }
+}
